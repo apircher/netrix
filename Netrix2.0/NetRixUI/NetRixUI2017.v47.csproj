@@ -589,7 +589,7 @@
       <Project>{ecbc8a51-db2a-4f69-ac98-b61680198650}</Project>
       <Name>Core2015.v45</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PlugIns\HtmlFormatter\HtmlFormatter2015.v45.csproj">
+    <ProjectReference Include="..\PlugIns\HtmlFormatter\HtmlFormatter2017.v47.csproj">
       <Project>{7504FB79-389D-40C9-B61C-79F4F01E8DCC}</Project>
       <Name>HtmlFormatter2015.v45</Name>
     </ProjectReference>

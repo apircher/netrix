@@ -152,6 +152,7 @@
     <Compile Include="NetRix\WebEditing\Elements\Html5\EmbedElement.cs" />
     <Compile Include="NetRix\WebEditing\Elements\Html5\FigCaptionElement.cs" />
     <Compile Include="NetRix\WebEditing\Elements\Html5\FigureElement.cs" />
+    <Compile Include="NetRix\WebEditing\Elements\Html5\FooterElement.cs" />
     <Compile Include="NetRix\WebEditing\Elements\Html5\HeaderElement.cs" />
     <Compile Include="NetRix\WebEditing\Elements\Html5\HGroupElement.cs" />
     <Compile Include="NetRix\WebEditing\Elements\Html5\Html5Base.cs" />
@@ -848,15 +849,15 @@
       <Project>{ecbc8a51-db2a-4f69-ac98-b61680198650}</Project>
       <Name>Core2015.v45</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NetRixUI\NetRixUI2015.v45.csproj">
+    <ProjectReference Include="..\NetRixUI\NetRixUI2017.v47.csproj">
       <Project>{965dd31a-e3b4-4086-a47f-dd7ca967a0cd}</Project>
       <Name>NetRixUI2015.v45</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PlugIns\HelpLine\HelpLine2015.v45.csproj">
+    <ProjectReference Include="..\PlugIns\HelpLine\HelpLine2017.v47.csproj">
       <Project>{f09f9e73-0994-4a20-b6d5-79675f959f41}</Project>
       <Name>HelpLine2015.v45</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PlugIns\HtmlFormatter\HtmlFormatter2015.v45.csproj">
+    <ProjectReference Include="..\PlugIns\HtmlFormatter\HtmlFormatter2017.v47.csproj">
       <Project>{7504fb79-389d-40c9-b61c-79f4f01e8dcc}</Project>
       <Name>HtmlFormatter2015.v45</Name>
     </ProjectReference>

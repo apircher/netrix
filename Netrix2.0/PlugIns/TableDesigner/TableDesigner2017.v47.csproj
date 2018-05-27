@@ -249,11 +249,11 @@
       <Project>{ecbc8a51-db2a-4f69-ac98-b61680198650}</Project>
       <Name>Core2015.v45</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\NetRixMain\NetRix2015.v45.csproj">
+    <ProjectReference Include="..\..\NetRixMain\NetRix2017.v47.csproj">
       <Project>{0d20b7bc-3b10-4849-8ce2-aeb260d6a352}</Project>
       <Name>NetRix2015.v45</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HtmlFormatter\HtmlFormatter2015.v45.csproj">
+    <ProjectReference Include="..\HtmlFormatter\HtmlFormatter2017.v47.csproj">
       <Project>{7504fb79-389d-40c9-b61c-79f4f01e8dcc}</Project>
       <Name>HtmlFormatter2015.v45</Name>
     </ProjectReference>
