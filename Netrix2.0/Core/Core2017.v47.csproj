@@ -133,6 +133,7 @@
     <Compile Include="ComInterop\Interop.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ComInterop\LoadHtmlMoniker.cs" />
     <Compile Include="ComInterop\Scripting.cs" />
     <Compile Include="ComInterop\Win32.cs" />
     <Compile Include="Designer\CommandWrapper.cs">

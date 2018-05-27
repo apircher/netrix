@@ -49,7 +49,7 @@ namespace GuruComponents.Netrix.ComInterop
             IBindCtx bc,      // bind context object
             string szUserName,    // display name
             out uint chEaten,      // number of characters
-            out Interop.IMoniker mk // IMoniker interface
+            out IMoniker mk // IMoniker interface
             );
 
         /// <exclude/>
@@ -81,7 +81,7 @@ namespace GuruComponents.Netrix.ComInterop
 
         /// <exclude/>
         [DllImport("urlmon.dll", ExactSpelling = true, CharSet = CharSet.Unicode)]
-        public static extern int CreateURLMoniker(Interop.IMoniker pmkContext, string szURL, [Out] out Interop.IMoniker ppmk);
+        public static extern int CreateURLMoniker(IMoniker pmkContext, string szURL, [Out] out IMoniker ppmk);
 
         /// <exclude/>
         [DllImport("urlmon.dll", ExactSpelling = true, CharSet = CharSet.Unicode)]

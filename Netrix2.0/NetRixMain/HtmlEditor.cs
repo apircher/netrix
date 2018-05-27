@@ -3574,7 +3574,7 @@ namespace GuruComponents.Netrix {
           ob.SetClientSite((Interop.IOleClientSite)MshtmlSite);
           Interop.IPersistMoniker persistMoniker;
           Interop.IBindCtx bindContext;
-          Interop.IMoniker moniker;
+          IMoniker moniker;
           persistMoniker = (Interop.IPersistMoniker)MshtmlSite.MSHTMLDocument; //this.ActiveDocument;
           Win32.CreateURLMoniker(null, "file:///" + Url, out moniker);
           Win32.CreateBindCtx(0, out bindContext);
@@ -3729,7 +3729,7 @@ namespace GuruComponents.Netrix {
           ob.SetClientSite((Interop.IOleClientSite)MshtmlSite);
           Interop.IPersistMoniker persistMoniker;
           Interop.IBindCtx bindContext;
-          Interop.IMoniker moniker;
+          IMoniker moniker;
           persistMoniker = (Interop.IPersistMoniker)MshtmlSite.MSHTMLDocument;
           Win32.CreateURLMoniker(null, Url, out moniker);
           Win32.CreateBindCtx(0, out bindContext);
@@ -4067,6 +4067,44 @@ namespace GuruComponents.Netrix {
         StringLoader(content);
       }
       OnLoaded();
+    }
+        
+    /// <summary>
+    /// Loads the given content into the control using the given base url.
+    /// </summary>
+    /// <param name="content"></param>
+    /// <param name="baseUrl"></param>
+    public void LoadHtml(string content, string baseUrl) {
+        if (String.IsNullOrEmpty(content)) {
+            return;
+        }
+        ResetDesiredProperties(false);
+        Url = baseUrl;
+        // Start loading
+        OnLoading();
+        try {
+            this.IsFileBasedDocument = false;
+            if (ServiceProvider.GetService(typeof(Interop.IAuthenticate)) != null) {
+                ServiceProvider.RemoveService(typeof(Interop.IAuthenticate));
+            }
+            if (ServiceProvider.GetService(typeof(Interop.IHttpSecurity)) != null) {
+                ServiceProvider.RemoveService(typeof(Interop.IHttpSecurity));
+            }
+            Interop.IOleObject ob = (Interop.IOleObject)MshtmlSite.MSHTMLDocument;
+            ob.SetClientSite((Interop.IOleClientSite)MshtmlSite);
+            Interop.IPersistMoniker persistMoniker;
+            Interop.IBindCtx bindContext;
+            IMoniker moniker;
+            persistMoniker = (Interop.IPersistMoniker)MshtmlSite.MSHTMLDocument;
+            moniker = new LoadHtmlMoniker();
+            ((LoadHtmlMoniker)moniker).InitLoader(content, baseUrl);
+            
+            Win32.CreateBindCtx(0, out bindContext);
+            persistMoniker.Load(1, moniker, bindContext, (int)Interop.STGM.STGM_READ);
+        } catch (Exception ex) {
+            throw new Exception("Cannot load content into control", ex);
+        }
+        OnLoaded();
     }
 
     /// <summary>

@@ -43,7 +43,6 @@ namespace GuruComponents.Netrix.WebEditing.Elements.Html5
         /// Creates the specified header element.
         /// </summary>
         /// <param name="editor">The editor this element belongs to.</param>
-        /// <param name="h">The type of header being created.</param>
         public FooterElement(IHtmlEditor editor)
             : base("footer", editor)
         {
