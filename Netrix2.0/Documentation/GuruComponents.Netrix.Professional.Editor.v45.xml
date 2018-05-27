@@ -1658,7 +1658,6 @@
             Creates the specified header element.
             </summary>
             <param name="editor">The editor this element belongs to.</param>
-            <param name="h">The type of header being created.</param>
         </member>
         <member name="T:GuruComponents.Netrix.WebEditing.Elements.Html5.HeaderElement">
             <summary>

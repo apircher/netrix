@@ -1034,6 +1034,170 @@
         <member name="T:GuruComponents.Netrix.ComInterop.Interop.IMarkupContainer2">
             <exclude/>
         </member>
+        <member name="T:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker">
+            <summary>
+            IMoniker-Implementation for loading html into a document while having the ability to set the base url.
+            </summary>
+            <remarks>
+            Borrowed from https://www.codeproject.com/Articles/18935/The-most-complete-C-Webbrowser-wrapper-control. 
+            All the credits to mehrcpp!
+            </remarks>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.InitLoader(System.String,System.String)">
+            <summary>
+            Initializes the internal IStream-instance and stores the base url.
+            </summary>
+            <param name="content"></param>
+            <param name="baseUrl"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.GetClassID(System.Guid@)">
+            <summary>
+            IMoniker.GetClassID is not implemented.
+            </summary>
+            <param name="pClassID"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.IsDirty">
+            <summary>
+            IMoniker.IsDirty is not implemented.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.Load(System.Runtime.InteropServices.ComTypes.IStream)">
+            <summary>
+            IMoniker.Load is not implemented.
+            </summary>
+            <param name="pStm"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.Save(System.Runtime.InteropServices.ComTypes.IStream,System.Boolean)">
+            <summary>
+            IMoniker.Save is not implemented.
+            </summary>
+            <param name="pStm"></param>
+            <param name="fClearDirty"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.GetSizeMax(System.Int64@)">
+            <summary>
+            IMoniker.GetSizeMax is not implemented.
+            </summary>
+            <param name="pcbSize"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.BindToObject(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.Guid@,System.Object@)">
+            <summary>
+            IMoniker.BindToObject is not implemented.
+            </summary>
+            <param name="pbc"></param>
+            <param name="pmkToLeft"></param>
+            <param name="riidResult"></param>
+            <param name="ppvResult"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.BindToStorage(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.Guid@,System.Object@)">
+            <summary>
+            Implements IMoniker.BindToStorage. Passes a ref to the internal stream that holds the page data to load.
+            </summary>
+            <param name="pbc"></param>
+            <param name="pmkToLeft"></param>
+            <param name="riid"></param>
+            <param name="ppvObj"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.Reduce(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Int32,System.Runtime.InteropServices.ComTypes.IMoniker@,System.Runtime.InteropServices.ComTypes.IMoniker@)">
+            <summary>
+            IMoniker.Reduce is not implemented.
+            </summary>
+            <param name="pbc"></param>
+            <param name="dwReduceHowFar"></param>
+            <param name="ppmkToLeft"></param>
+            <param name="ppmkReduced"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.ComposeWith(System.Runtime.InteropServices.ComTypes.IMoniker,System.Boolean,System.Runtime.InteropServices.ComTypes.IMoniker@)">
+            <summary>
+            IMoniker.ComposeWith is not implemented.
+            </summary>
+            <param name="pmkRight"></param>
+            <param name="fOnlyIfNotGeneric"></param>
+            <param name="ppmkComposite"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.Enum(System.Boolean,System.Runtime.InteropServices.ComTypes.IEnumMoniker@)">
+            <summary>
+            IMoniker.Enum is not implemented.
+            </summary>
+            <param name="fForward"></param>
+            <param name="ppenumMoniker"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.IsEqual(System.Runtime.InteropServices.ComTypes.IMoniker)">
+            <summary>
+            IMoniker.IsEqual is not implemented.
+            </summary>
+            <param name="pmkOtherMoniker"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.Hash(System.Int32@)">
+            <summary>
+            IMoniker.Hash is not implemented.
+            </summary>
+            <param name="pdwHash"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.IsRunning(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.Runtime.InteropServices.ComTypes.IMoniker)">
+            <summary>
+            IMoniker.IsRunning is not implemented.
+            </summary>
+            <param name="pbc"></param>
+            <param name="pmkToLeft"></param>
+            <param name="pmkNewlyRunning"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.GetTimeOfLastChange(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.Runtime.InteropServices.ComTypes.FILETIME@)">
+            <summary>
+            IMoniker.GetTimeOfLastChange is not implemented.
+            </summary>
+            <param name="pbc"></param>
+            <param name="pmkToLeft"></param>
+            <param name="pFileTime"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.Inverse(System.Runtime.InteropServices.ComTypes.IMoniker@)">
+            <summary>
+            IMoniker.Inverse is not implemented.
+            </summary>
+            <param name="ppmk"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.CommonPrefixWith(System.Runtime.InteropServices.ComTypes.IMoniker,System.Runtime.InteropServices.ComTypes.IMoniker@)">
+            <summary>
+            IMoniker.CommonPrefixWith is not implemented.
+            </summary>
+            <param name="pmkOther"></param>
+            <param name="ppmkPrefix"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.RelativePathTo(System.Runtime.InteropServices.ComTypes.IMoniker,System.Runtime.InteropServices.ComTypes.IMoniker@)">
+            <summary>
+            IMoniker.RelativePathTo is not implemented.
+            </summary>
+            <param name="pmkOther"></param>
+            <param name="ppmkRelPath"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.GetDisplayName(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.String@)">
+            <summary>
+            Implements IMoniker.GetDisplayName to return the base url.
+            </summary>
+            <param name="pbc"></param>
+            <param name="pmkToLeft"></param>
+            <param name="ppszDisplayName"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.ParseDisplayName(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IMoniker,System.String,System.Int32@,System.Runtime.InteropServices.ComTypes.IMoniker@)">
+            <summary>
+            IMoniker.ParseDisplayName is not implemented.
+            </summary>
+            <param name="pbc"></param>
+            <param name="pmkToLeft"></param>
+            <param name="pszDisplayName"></param>
+            <param name="pchEaten"></param>
+            <param name="ppmkOut"></param>
+        </member>
+        <member name="M:GuruComponents.Netrix.ComInterop.LoadHtmlMoniker.IsSystemMoniker(System.Int32@)">
+            <summary>
+            IMoniker.IsSystemMoniker is not implemented.
+            </summary>
+            <param name="pdwMksys"></param>
+            <returns></returns>
+        </member>
         <member name="T:GuruComponents.Netrix.ComInterop.IActiveScript">
             <summary>
             Interface IActiveScript.
