@@ -177,7 +177,18 @@ namespace GuruComponents.Netrix.TableDesigner
                 return null;
             }  
             return (Interop.IHTMLTableCell) arrayList[col];
-        } 
+        }
+
+
+        /// <summary>
+        /// Returns the row at the given index
+        /// </summary>
+        /// <param name="rowIndex"></param>
+        /// <returns></returns>
+        public Interop.IHTMLTableRow Row(int rowIndex)
+        {
+            return (Interop.IHTMLTableRow)_rows[rowIndex];
+        }
 
         /// <summary>
         /// Total number of rows.

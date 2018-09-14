@@ -31,6 +31,14 @@ namespace GuruComponents.Netrix.TableDesigner
         /// <returns>cell element</returns>
         Interop.IHTMLTableCell Item (int row, int col);
 
+
+        /// <summary>
+        /// Retrieves the row at given row index
+        /// </summary>
+        /// <param name="rowIndex"></param>
+        /// <returns></returns>
+        Interop.IHTMLTableRow Row(int rowIndex);
+
         /// <summary>
         /// Total number of rows.
         /// </summary>

@@ -313,7 +313,7 @@ namespace GuruComponents.Netrix.WebEditing.Elements
         /// SRC is the one required attribute. It is recommended to use relative paths. If a filename is given the property will recognize and set
         /// the relative path automatically.
         /// <para>
-        /// Note: To bypass the automatic truncation of paths you can use the base class' <see cref="SetAttribute"/> method, which provides a raw access to 
+        /// Note: To bypass the automatic truncation of paths you can use the base class' method, which provides a raw access to 
         /// all supported attributes like <c>img.SetAttribute("src", "file:///c:\mypath\myimage.png");</c>. Further access to <c>src></c> property will
         /// still truncate the value, but only for the caller. It will not change the content until you set the value explicitly through this property.
         /// </para>

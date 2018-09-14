@@ -31,8 +31,8 @@ namespace GuruComponents.Netrix.TableDesigner
         public TableDesignerBehavior(TableEditDesigner designer, IHtmlEditor host) : base(host)
         {
             this.designer = designer;
-            CurrentTableBorderPen = new Pen(Color.Black, 1.5F);
-            CurrentTableBorderPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            CurrentTableBorderPen = new Pen(Color.DarkGray, 2F); //DA
+            CurrentTableBorderPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot; //DA
             CurrentTableBorderPen.LineJoin = System.Drawing.Drawing2D.LineJoin.Round;
             // Slider
             // Painter defaults
@@ -96,7 +96,7 @@ namespace GuruComponents.Netrix.TableDesigner
                     gr.DrawRectangle(CurrentTableBorderPen, r.Left, r.Top, r.Width - 0, r.Height - 0);
                 }
                 // Draw master handle to activate/deactivate design mode any time
-                gr.DrawIcon(ActivatorIcon, r.Left, r.Top);
+                //DA: gr.DrawIcon(ActivatorIcon, r.Left, r.Top);
             }
             else
             {

@@ -212,14 +212,18 @@ namespace GuruComponents.Netrix.WebEditing.Behaviors
         {
             try
             {
+                if (Math.Abs(leftBounds) > 1000)
+                    return; //DA
                 if (!_host.IsReady || hdc == IntPtr.Zero || !_host.DesignModeEnabled || hdc.ToInt64() == 1) return;
                 using (Graphics gr = Graphics.FromHdc(hdc))
                 {
                     Draw(leftBounds, topBounds, rightBounds, bottomBounds, gr);
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                String s = ex.ToString();
+
             }
         }
 

@@ -1031,7 +1031,8 @@ namespace GuruComponents.Netrix.TableDesigner
                     Interop.IHTMLTableCell currentCell;
                     for (currentCell = TableInfo.Item(currentRow, col); currentCell != null; currentCell = TableInfo.Item(currentRow, col))
                     {
-                        Interop.IHTMLTableRow rowCellIsIn = CurrentCell.Row.GetBaseElement() as Interop.IHTMLTableRow;
+                        //Interop.IHTMLTableRow rowCellIsIn = CurrentCell.Row.GetBaseElement() as Interop.IHTMLTableRow;
+                        Interop.IHTMLTableRow rowCellIsIn = ((Interop.IHTMLElement)currentCell).GetParentElement() as Interop.IHTMLTableRow;
                         TableInfo.GetCellPoint(currentCell, ref rowIn, ref colIn);
                         if (col == colIn)
                         {

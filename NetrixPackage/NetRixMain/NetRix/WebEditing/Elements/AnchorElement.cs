@@ -82,6 +82,8 @@ namespace GuruComponents.Netrix.WebEditing.Elements
         {
             set
             {
+
+                /*DA:
                 try
                 {
                     System.Uri uri;
@@ -95,17 +97,22 @@ namespace GuruComponents.Netrix.WebEditing.Elements
                 {
                 }
                 this.SetStringAttribute ("href", this.GetRelativeUrl(value));
+                */
+                this.SetStringAttribute("href", value);
                 return;
             } 
             get
             {
                 string href = this.GetStringAttribute("href");
+
+                /*DA:
                 try
                 {
                     System.Uri uri;
                     if (System.Uri.TryCreate(href, System.UriKind.Absolute, out uri))
                     {
-                        return uri.AbsoluteUri;
+                        //return uri.AbsoluteUri;
+                        return uri.AbsolutePath; //DA
                     }
                 }
                 catch
@@ -113,7 +120,28 @@ namespace GuruComponents.Netrix.WebEditing.Elements
                 }
                 return this.GetRelativeUrl(href);
 
+                }
+                return this.GetRelativeUrl(href);
+                */
+                return href;
+
             }  
+        }
+
+        /// <summary>
+        /// sets the rel attribute
+        /// </summary>
+        public string rel
+        {
+            get
+            {
+                return base.GetStringAttribute("rel");
+            }
+
+            set
+            {
+                base.SetStringAttribute("rel", value);
+            }
         }
 
 		/// <summary>

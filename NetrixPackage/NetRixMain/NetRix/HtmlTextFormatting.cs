@@ -333,6 +333,11 @@ namespace GuruComponents.Netrix
             set { throw new NotImplementedException("Use CssTextFormatting class to use this function."); }
         }
 
+        public virtual void ApplyCssFontSize(ISelection selection, string fontSizeStr)
+        {
+            throw new NotImplementedException("Use CssTextFormatting class to use this function.");
+        }
+
         /// <summary>
         /// The foreground color of the current text.
         /// </summary>
@@ -1461,6 +1466,7 @@ namespace GuruComponents.Netrix
         {
 
         }
+
 
         #endregion
     }

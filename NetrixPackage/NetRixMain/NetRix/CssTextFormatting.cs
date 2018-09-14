@@ -2,10 +2,12 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
+
 using GuruComponents.Netrix.ComInterop;
 using GuruComponents.Netrix.WebEditing.Elements;
 using GuruComponents.Netrix.WebEditing.Styles;
-using System.Web.UI.WebControls;
 using GuruComponents.Netrix.WebEditing.UndoRedo;
 
 namespace GuruComponents.Netrix
@@ -139,7 +141,7 @@ namespace GuruComponents.Netrix
         {
             get
             {
-                IElement e = GetElementThatSpansSelection(false);
+                IElement e = GetElementThatSpansSelection(false) ?? editor.GetCurrentElement();
                 if (e != null)
                 {
                     return e.EffectiveStyle.font.FontFamily;
@@ -160,7 +162,7 @@ namespace GuruComponents.Netrix
                 }
                 unit.Close();
             }
-        }
+        }        
 
         /// <summary>
         /// Gets or sets the font size using a span tag and local CSS style 'font-size'.
@@ -172,7 +174,7 @@ namespace GuruComponents.Netrix
         {
             get
             {
-                IElement e = GetElementThatSpansSelection(false);
+                IElement e = GetElementThatSpansSelection(false) ?? editor.GetCurrentElement();
                 if (e != null)
                 {
                     return e.EffectiveStyle.font.FontSize;
@@ -193,6 +195,42 @@ namespace GuruComponents.Netrix
                 }
                 unit.Close();
             }
+        }
+
+        /// <summary>
+        /// Sets the font size for the given selection
+        /// </summary>
+        /// <param name="selection">the current selection</param>
+        /// <param name="fontSizeStr">the font size string, for example 10px or 20pt</param>
+        public override void ApplyCssFontSize(ISelection selection, string fontSizeStr)
+        {
+            BatchedUndoUnit unit = editor.OpenBatchUndo("ApplyCssFontSize");
+
+            string outerHtml = selection.GetOuterHtml();
+            string innerHtml = selection.Html;
+
+            outerHtml = DoApplyFontSize(outerHtml, innerHtml, fontSizeStr);
+
+            this.editor.Document.InsertHtml(outerHtml);
+            //selection.SetOuterHtml(outerHtml);
+
+            unit.Close();
+        }
+
+        public string DoApplyFontSize(string outerHtml, string innerHtml, string fontSizeStr)
+        {
+            string result = "";
+
+            outerHtml = outerHtml.Replace(innerHtml, "");
+
+            //remove all with font sizes
+            outerHtml = Regex.Replace(outerHtml, @"(?i)font-size:\s.*?\d+..[;]?", "", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            innerHtml = Regex.Replace(innerHtml, @"(?i)font-size:\s.*?\d+..[;]?", "", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+            result = "<span style=\"font-size: " + fontSizeStr + "\">" + innerHtml + "</span>";
+
+
+            return result;
         }
 
         /// <summary>
