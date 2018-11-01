@@ -5851,7 +5851,136 @@ namespace GuruComponents.Netrix
             set { _needactivation = value; }
         }
 
-        # endregion
+        #endregion
+
+        #region DA
+
+        /// <summary>
+        /// Increases the font size
+        /// </summary>
+        public int IncreaseFontSize()
+        {
+            try
+            {
+                int i = GetDomDocument().queryCommandValue("FontSize") + 1;
+                SetHtmlFontSize(i);
+            } catch { }
+            return GetCurrentHtmlFontSize();
+        }
+
+        public int GetCurrentHtmlFontSize()
+        {
+            FontUnit unit = this.TextFormatting.FontSize;
+
+            switch (unit)
+            {
+                case FontUnit.Empty:
+                    return 0;
+                case FontUnit.XXSmall:
+                    return 1;
+                case FontUnit.XSmall:
+                    return 2;
+                case FontUnit.Small:
+                    return 3;
+                case FontUnit.Medium:
+                    return 4;
+                case FontUnit.Large:
+                    return 5;
+                case FontUnit.XLarge:
+                    return 6;
+                case FontUnit.XXLarge:
+                    return 7;
+                default:
+                    return 0;                                          
+            }
+
+            /*
+            this.TextFormatting.FontSize;
+
+            try
+            {
+                return GetDomDocument().queryCommandValue("FontSize");
+            } catch
+            {
+                return 3; //sinnvoller Default?
+            } 
+            */            
+        }
+
+        /// <summary>
+        /// Decreases the font size
+        /// </summary>
+        /// <returns></returns>
+        public int DecreaseFontSize()
+        {
+            try
+            {
+                int i = GetDomDocument().queryCommandValue("FontSize") - 1;
+                SetHtmlFontSize(i);
+            } catch { }
+            
+            return GetCurrentHtmlFontSize();
+        }
+
+        public int SetHtmlFontSize(int size)
+        {
+            MshtmlSite.MSHTMLDocument.ExecCommand("FontSize", true, size);
+            return GetCurrentHtmlFontSize();
+        }
+
+        public void SetFontFamily(string fontname)
+        {
+            MshtmlSite.MSHTMLDocument.ExecCommand("FontName", false, fontname);            
+        }
+
+        public String GetFontFamily()
+        {
+            return MshtmlSite.MSHTMLDocument.QueryCommandValue("FontName") as String;
+        }
+
+        public System.Web.UI.WebControls.Unit GetFontSize()
+        {
+            mshtml.IHTMLDocument2 doc = GetDomDocument();
+            if (doc != null && doc.selection != null)
+            {
+                try
+                {
+                    mshtml.IHTMLTxtRange range = doc.selection.createRange() as mshtml.IHTMLTxtRange;
+                    if (range != null)
+                    {
+                        mshtml.IHTMLElement2 elem = range.parentElement() as mshtml.IHTMLElement2;
+                        return NetrixUtils.ConvertStringToUnit(elem.currentStyle.fontSize);
+                        //MessageBox.Show("Current font size: " + elem.currentStyle.fontSize.ToString() + "\r\n");
+                    }
+                }
+                catch (COMException ex)
+                {
+                }
+            }
+
+            return System.Web.UI.WebControls.Unit.Empty;
+        }
+
+
+        /// <summary>
+        /// Returns the MS HTML Document
+        /// </summary>
+        /// <returns></returns>
+        public mshtml.IHTMLDocument2 GetDomDocument()
+        {
+            mshtml.IHTMLDocument2 doc = (mshtml.IHTMLDocument2)this.MshtmlSite.MSHTMLDocument;
+            return doc;
+        }
+
+        public string GetFontSizeDirectly()
+        {
+            mshtml.IHTMLElement ele = GetDomDocument().activeElement;
+            return ele.toString();
+        }
+
+
+
+        #endregion
 
         #endregion
 
@@ -5903,7 +6032,7 @@ namespace GuruComponents.Netrix
             set { _htmlEditorsite=value; }
         }
         private IDesignSite _htmlEditorsite;
-        internal MSHTMLSite MshtmlSite
+        public MSHTMLSite MshtmlSite
         {
             get { return _mshtmlsite; }
             set { _mshtmlsite=value; }

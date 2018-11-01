@@ -83,6 +83,7 @@ namespace GuruComponents.Netrix
         private bool _atomicDesiredValue = false;
 
         private HtmlTextFormatting _textFormatting = null;
+        private ITextFormatting _cssTextFormatting = null;
         private HtmlDocument _document = null;
         private HtmlSelection _selection = null;
         private bool _isFileBasedDocument = false;
@@ -1190,11 +1191,11 @@ namespace GuruComponents.Netrix
         {
             get
             {
-                if (_textFormatting == null)
+                if (_cssTextFormatting == null)
                 {
-                    _textFormatting = new CssTextFormatting(this);
+                    _cssTextFormatting = new CssTextFormatting(this);
                 }
-                return _textFormatting;
+                return _cssTextFormatting;
             }
         }
 

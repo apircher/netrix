@@ -216,6 +216,13 @@ namespace GuruComponents.Netrix
         System.Web.UI.WebControls.Unit CssFontSize { get; set; }
 
         /// <summary>
+        /// Sets the font size for the given selection
+        /// </summary>
+        /// <param name="selection">the current selection</param>
+        /// <param name="fontSizeStr">the font size string, for example 10px or 20pt</param>
+        void ApplyCssFontSize(ISelection selection, string fontSizeStr);
+
+        /// <summary>
         /// The foreground color of the current text.
         /// </summary>
         /// <remarks>

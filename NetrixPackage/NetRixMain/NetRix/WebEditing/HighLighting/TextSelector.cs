@@ -1459,6 +1459,20 @@ namespace GuruComponents.Netrix.WebEditing.HighLighting
 
         # endregion
 
+        public bool SyncRangeWithSelection() {
+          Interop.IHTMLSelectionObject selection = this.editor.GetActiveDocument(false).GetSelection();
+          object range;
+          try {
+            range = selection.CreateRange();
+          } catch {
+            return false;
+          }
+          if (range == null || !(range is Interop.IHTMLTxtRange))
+            return false;
+          this.trg = (Interop.IHTMLTxtRange)range;
+          return true;
+        }
+
 
         #region IDisposable Members
 

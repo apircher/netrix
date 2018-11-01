@@ -7,7 +7,7 @@ namespace GuruComponents.Netrix.WebEditing.DragDrop
     /// <summary>
     /// This class converts data for dragged objects.
     /// </summary>
-    internal class DataObjectConverter : GuruComponents.Netrix.WebEditing.DragDrop.IDataObjectConverter
+    public class DataObjectConverter : GuruComponents.Netrix.WebEditing.DragDrop.IDataObjectConverter
     {
 
         /// <summary>

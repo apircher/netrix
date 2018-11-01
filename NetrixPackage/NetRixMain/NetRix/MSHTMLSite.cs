@@ -27,7 +27,7 @@ namespace GuruComponents.Netrix
     /// key support.
     /// </remarks>
     [ClassInterface(ClassInterfaceType.None)]
-    internal class MSHTMLSite :
+    public class MSHTMLSite :
         Interop.IOleClientSite,
         Interop.IOleContainer,
         Interop.IOleDocumentSite,

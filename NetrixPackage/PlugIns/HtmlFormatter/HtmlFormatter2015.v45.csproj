@@ -215,9 +215,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Core2010.v40.csproj">
+    <ProjectReference Include="..\..\Core\Core2015.v45.csproj">
       <Project>{ECBC8A51-DB2A-4F69-AC98-B61680198650}</Project>
-      <Name>Core2010.v40</Name>
+      <Name>Core2015.v45</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -1079,6 +1079,19 @@ namespace GuruComponents.Netrix
             set { toolStripContainer1 = value; }
         }
 
+        public EditPanel PanelEditContainer
+        {
+            get
+            {
+                return panelEditContainer;
+            }
+
+            set
+            {
+                panelEditContainer = value;
+            }
+        }
+
         private void rulerControlH_Resize(object sender, EventArgs e)
         {
             ResizeEditContainer();

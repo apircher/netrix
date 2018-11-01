@@ -246,17 +246,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Core2010.v40.csproj">
-      <Project>{ECBC8A51-DB2A-4F69-AC98-B61680198650}</Project>
-      <Name>Core2010.v40</Name>
+    <ProjectReference Include="..\..\Core\Core2015.v45.csproj">
+      <Project>{ecbc8a51-db2a-4f69-ac98-b61680198650}</Project>
+      <Name>Core2015.v45</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\NetRixMain\NetRix2010.v40.csproj">
-      <Project>{0D20B7BC-3B10-4849-8CE2-AEB260D6A352}</Project>
-      <Name>NetRix2010.v40</Name>
+    <ProjectReference Include="..\..\NetRixMain\NetRix2015.v45.csproj">
+      <Project>{0d20b7bc-3b10-4849-8ce2-aeb260d6a352}</Project>
+      <Name>NetRix2015.v45</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HtmlFormatter\HtmlFormatter2010.v40.csproj">
-      <Project>{7504FB79-389D-40C9-B61C-79F4F01E8DCC}</Project>
-      <Name>HtmlFormatter2010.v40</Name>
+    <ProjectReference Include="..\HelpLine\HelpLine2015.v45.csproj">
+      <Project>{f09f9e73-0994-4a20-b6d5-79675f959f41}</Project>
+      <Name>HelpLine2015.v45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HtmlFormatter\HtmlFormatter2015.v45.csproj">
+      <Project>{7504fb79-389d-40c9-b61c-79f4f01e8dcc}</Project>
+      <Name>HtmlFormatter2015.v45</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

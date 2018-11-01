@@ -12,13 +12,10 @@ namespace GuruComponents.Netrix.WebEditing.Elements.Html5
     /// The canvas tag is used to display graphics.
     /// </summary>
     /// <remarks>
-    /// <para>
-    /// The <canvas> tag is only a container for graphics, you must use a script to actually paint graphics. 
-    /// </para>
     /// Classes directly or indirectly inherited from 
-    /// <see cref="GuruComponents.Netrix.WebEditing.Elements.Element"/> are not intended to be instantiated
+    ///  are not intended to be instantiated
     /// directly by the host application. Use the various insertion or creation methods in the base classes
-    /// instead. The return values are of type <see cref="GuruComponents.Netrix.WebEditing.Elements.IElement"/>
+    /// instead. The return values are of type
     /// and can be casted into the element just created.
     /// <para>
     /// Examples of how to create and modify elements with the native element classes can be found in the 

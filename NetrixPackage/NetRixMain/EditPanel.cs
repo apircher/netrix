@@ -9,10 +9,12 @@ namespace GuruComponents.Netrix
     /// <summary>
     /// Handles basic events for editing purposes.
     /// </summary>
-    class EditPanel : Panel
+    public class EditPanel : Panel
     {
 
         private HtmlEditor editor;
+
+        private IImagePasteCallback _imagePasteCallback = null;
 
         public EditPanel() : base()
         {
@@ -42,6 +44,19 @@ namespace GuruComponents.Netrix
                     return true;
                 }
                 return false;
+            }
+        }
+
+        public IImagePasteCallback ImagePasteCallback
+        {
+            get
+            {
+                return _imagePasteCallback;
+            }
+
+            set
+            {
+                _imagePasteCallback = value;
             }
         }
 
@@ -291,6 +306,14 @@ namespace GuruComponents.Netrix
                                 Done = true;
                                 break;
                             case Keys.V: //Paste
+                                //DA: pasting image callback
+                                if (Clipboard.ContainsImage())
+                                {
+                                    _imagePasteCallback.PasteImage();
+                                    Done = true;
+                                    break;
+                                }
+                                //END DA
                                 editor.Paste();
                                 Done = true;
                                 break;
